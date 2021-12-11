@@ -7,36 +7,36 @@ export const MyselfQuestion2 = ({ setAnswerHandler }) => {
         Question 2
       </span>
       <p className='font-bold mt-4 mb-7'>
-        What eye’s color do you have?
+        Who are you?
       </p>
       <div className='flex flex-col w-full'>
         <button
           type='button'
           className='inline-flex justify-between items-center px-6 py-3 mb-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-          onClick={() => setAnswerHandler(1, 'dark')}
+          onClick={() => setAnswerHandler(1, 'man')}
         >
-          Dark eyes
+          Man
         </button>
         <button
           type='button'
           className='inline-flex justify-between items-center px-6 py-3 mb-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-          onClick={() => setAnswerHandler(1, 'bright')}
+          onClick={() => setAnswerHandler(1, 'woman')}
         >
-          Bright eyes
-        </button>
-        <button
-          type='button'
-          className='inline-flex justify-between items-center px-6 py-3 mb-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-          onClick={() => setAnswerHandler(1, 'mixed')}
-        >
-          Mixed eyes
+          Woman
         </button>
         <button
           type='button'
           className='inline-flex justify-between items-center px-6 py-3 mb-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
           onClick={() => setAnswerHandler(1, 'non')}
         >
-          Non color
+          Non-binary
+        </button>
+        <button
+          type='button'
+          className='inline-flex justify-between items-center px-6 py-3 mb-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+          onClick={() => setAnswerHandler(1, 'not')}
+        >
+          Prefer Not to Answer
         </button>
       </div>
     </div>
