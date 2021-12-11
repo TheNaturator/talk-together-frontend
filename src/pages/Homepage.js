@@ -1,9 +1,11 @@
 import React from 'react'
 import { ChatAltIcon, SearchIcon } from '@heroicons/react/solid'
+import { useNavigate } from 'react-router-dom'
 import { PageLayout } from '../components/PageLayout'
 import homepageImage from '../assets/homepage.png'
 
 export const Homepage = () => {
+  const navigate = useNavigate()
   return (
     <PageLayout>
       <div>
@@ -21,6 +23,7 @@ export const Homepage = () => {
         <button
           type='button'
           className='inline-flex justify-between items-center mb-5 px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+          onClick={() => navigate('/prechat')}
         >
           I want to type
           <ChatAltIcon className='ml-3 -mr-1 h-5 w-5' aria-hidden='true' />
