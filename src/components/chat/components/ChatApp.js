@@ -1,4 +1,5 @@
 import '../styles/ChatApp.css'
+import '../styles/App.css'
 
 import React, { useEffect, useState } from 'react'
 import io from 'socket.io-client'
@@ -20,7 +21,7 @@ export const ChatApp = ({ userName }) => {
 
     setSocket(socketObj)
     return () => {
-      socket.close()
+      socketObj.close()
     }
   }, [])
 
@@ -39,7 +40,6 @@ export const ChatApp = ({ userName }) => {
 
   const addMessage = (message) => {
     setMessages(prevState => {
-      console.log('prevState', prevState)
       const newState = [...prevState]
       newState.push(message)
       return newState
@@ -48,7 +48,6 @@ export const ChatApp = ({ userName }) => {
 
   return (
     <div className='container'>
-      <h3>React Chat App</h3>
       <Messages messages={messages} />
       <ChatInput onSend={sendHandler} />
     </div>
