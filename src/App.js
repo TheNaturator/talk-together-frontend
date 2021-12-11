@@ -5,6 +5,7 @@ import { ChatApp } from './components/chat/components/ChatApp'
 import { Homepage } from './pages/Homepage'
 import { Chat } from './pages/Chat'
 import { PreChat } from './pages/PreChat'
+import { Myself } from './components/Myself'
 
 function App () {
   return (
@@ -12,6 +13,7 @@ function App () {
       <Routes>
         <Route path='/' element={<Homepage />} />
         <Route path='/prechat' element={<PreChat />} exact />
+        <Route path='/myself' element={<Myself />} exact />
         <Route path='/chat/:nickname' element={<Chat />} exact />
         <Route path='/adminchat' element={<ChatApp userName='Maria' />} exact />
       </Routes>

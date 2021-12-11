@@ -35,3 +35,17 @@ export const TopNavChat = () => {
     </div>
   )
 }
+
+export const TopNavMyself = () => {
+  const navigate = useNavigate()
+  return (
+    <div className='bg-white pl-5'>
+      <a className='flex items-center py-5' onClick={() => navigate('/')}>
+        <ArrowLeftIcon className='ml-3 mr-3 h-5 w-5 fill-slate-500' />
+        <p className='text-slate-500'>
+          I want to know more about myself
+        </p>
+      </a>
+    </div>
+  )
+}
