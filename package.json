@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/material": "^5.0.6",
+    "@mui/styles": "^5.0.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router": "^6.0.1",
+    "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
+    "socket.io-client": "^1.4.8",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -18,9 +26,15 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "rules": {
+      "react/prop-types": 0,
+      "no-unused-vars": 0
+    },
+    "parser": "babel-eslint",
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "standard",
+      "standard-jsx",
+      "standard-react"
     ]
   },
   "browserslist": {
@@ -34,5 +48,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-standard-jsx": "^10.0.0",
+    "eslint-config-standard-react": "^11.0.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-react": "^7.27.1"
   }
 }
