@@ -2,18 +2,8 @@ import React from 'react'
 
 export const PageLayout = ({ children }) => {
   return (
-    <>
-      {/* <Menu /> */}
-      <div className='flex'>
-        {/* <Menu /> */}
-        <div
-          className='flex flex' style={{ height: '80vh' }}
-        >
-          <div>
-            {children}
-          </div>
-        </div>
-      </div>
-    </>
+    <div className='max-w-7xl mx-auto px-7 sm:px-6 lg:px-8'>
+      {children}
+    </div>
   )
 }
