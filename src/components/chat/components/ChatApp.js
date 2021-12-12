@@ -9,7 +9,11 @@ import { Messages } from './Messages'
 import { ChatInput } from './ChatInput'
 
 export const ChatApp = ({ userName }) => {
-  const [messages, setMessages] = useState([])
+  const [messages, setMessages] = useState([{
+    username: 'Maria',
+    message: 'Hi, Maria here. I am a psychologist. I would like to help you with your struggle :) How do you feel?',
+    fromMe: false
+  }])
   const [socket, setSocket] = useState({})
 
   useEffect(() => {
