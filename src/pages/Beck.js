@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const beckQuestions = [{
   question: 'Sadness',
@@ -316,8 +316,69 @@ const beckQuestions = [{
   }]
 }]
 
-export const Beck = () => {
-  return (
-    <>beck</>
-  )
+export const Beck = ({ backToQuestions, goToFinish }) => {
+  const [currentStep, setCurrentStep] = useState(0)
+  return beckQuestions.map((item, index) => {
+    if (index === currentStep) {
+      return (
+        <>
+          <div className='flex items-center flex-col' key={`beckQuestion-${index}`}>
+            <span
+              className='inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-300 text-gray-800 my-3'
+            >
+              Beck's Question {index + 1}
+            </span>
+            <p className='font-bold mt-4 mb-7'>
+              {item.question}
+            </p>
+
+            <div className='flex flex-col w-full'>
+              {item.list.map((question, index) => (
+                <button
+                  key={`question-${index}`}
+                  type='button'
+                  className='inline-flex justify-between items-center px-6 py-3 mb-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  onClick={() => {
+                    beckQuestions.length === currentStep + 1 ? goToFinish() : setCurrentStep(currentStep + 1)
+                  }}
+                >
+                  {question.text}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className='flex flex-row justify-between w-full mt-8'>
+            {currentStep !== 0
+              ? (
+                <button
+                  type='button'
+                  className='inline-flex justify-between items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  onClick={() => setCurrentStep(currentStep - 1)}
+                >
+                  Previous
+                </button>)
+              : (
+                <button
+                  type='button'
+                  className='inline-flex justify-between items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  onClick={() => backToQuestions()}
+                >
+                  Previous
+                </button>)}
+            <button
+              type='button'
+              className='inline-flex justify-between items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+              onClick={() => {
+                beckQuestions.length === currentStep + 1 ? goToFinish() : setCurrentStep(currentStep + 1)
+              }}
+            >
+              Next question
+            </button>
+          </div>
+        </>
+      )
+    }
+    return null
+  })
 }

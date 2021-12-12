@@ -4,10 +4,12 @@ import { TopNavMyself } from './TopNav'
 import { MyselfQuestion1 } from './myselfQuestions/MyselfQuestion1'
 import { MyselfQuestion2 } from './myselfQuestions/MyselfQuestion2'
 import { MyselfFinal } from './myselfQuestions/MyselfFinal'
+import { Beck } from '../pages/Beck'
 
 export const Myself = () => {
   const [steps, setSteps] = useState([{ name: 'Step 1', status: 'current' },
-    { name: 'Step 2', status: 'upcoming' }])
+    { name: 'Step 2', status: 'upcoming' },
+    { name: 'Step 3', status: 'upcoming' }])
   const [currentStep, setCurrentStep] = useState(0)
   const [answers, setAnswers] = useState([null, null])
 
@@ -37,6 +39,14 @@ export const Myself = () => {
       return newState
     })
     setCurrentStepHandler(index + 1)
+  }
+
+  const backToQuestions = () => {
+    setCurrentStep(1)
+  }
+
+  const goToFinish = () => {
+    setCurrentStep(3)
   }
 
   return (
@@ -74,28 +84,31 @@ export const Myself = () => {
         </nav>
         {currentStep === 0 ? <MyselfQuestion1 setAnswerHandler={setAnswerHandler} /> : null}
         {currentStep === 1 ? <MyselfQuestion2 setAnswerHandler={setAnswerHandler} /> : null}
-        {currentStep === 2
+        {currentStep === 2 ? <Beck backToQuestions={backToQuestions} goToFinish={goToFinish} /> : null}
+        {currentStep === 3
           ? <MyselfFinal />
-          : (
-            <div className='flex flex-row justify-between w-full mt-8'>
-              {currentStep !== 0
-                ? (
-                  <button
-                    type='button'
-                    className='inline-flex justify-between items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                    onClick={() => setCurrentStepHandler(currentStep - 1)}
-                  >
-                    Previous
-                  </button>)
-                : <></>}
-              <button
-                type='button'
-                className='inline-flex justify-between items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-                onClick={() => setCurrentStepHandler(currentStep + 1)}
-              >
-                Next question
-              </button>
-            </div>)}
+          : currentStep !== 2
+            ? (
+              <div className='flex flex-row justify-between w-full mt-8'>
+                {currentStep !== 0
+                  ? (
+                    <button
+                      type='button'
+                      className='inline-flex justify-between items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                      onClick={() => setCurrentStepHandler(currentStep - 1)}
+                    >
+                      Previous
+                    </button>)
+                  : <></>}
+                <button
+                  type='button'
+                  className='inline-flex justify-between items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                  onClick={() => setCurrentStepHandler(currentStep + 1)}
+                >
+                  Next question
+                </button>
+              </div>)
+            : null}
       </PageLayout>
     </>
   )

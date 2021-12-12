@@ -10,12 +10,11 @@ export const MyselfFinal = () => {
         Your results
       </p>
       <p>
-        here will be a text where we will describe how good you are
+        You are awesome! Thanks for the answers! Now you can join our specialist.
       </p>
       <div className='flex flex-col bg-slate-300 mt-12 w-full p-4 rounded-md'>
         <p className='font-bold text-slate-500'>Maria</p>
         <p className='flex items-center text-green-600'><StatusOnlineIcon className='mr-1 h-5 w-5 fill-green-600' /> online</p>
-        <p className='py-4'>Would you like to talk with our specialist? It is totally for free.</p>
         <a className='flex items-center text-blue-600 hover:text-blue-800' onClick={() => navigate('/prechat')}>
           Go to chat <ArrowRightIcon className='ml-3 mr-3 h-5 w-5' />
         </a>
